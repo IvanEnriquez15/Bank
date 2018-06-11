@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista Cuenta</title>
+</head>
+<body>
+
+<h1>Lista de Movimientos</h1>
+<h2 th:text="${cliente.nombre} +' ' + ${cliente.apellido}"></h2>
+	<table border=1>
+			<thead >
+				<tr>
+					<th>id</th>
+					<th>Tipo</th>
+					<th>Fecha</th>
+					<th>Monto</th>
+					<th>Cuenta</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="movimiento: ${movimientos}">
+					<td th:text="${movimiento.id}"></td>
+					<td th:text="${movimiento.tipo}"></td>
+					<td th:text="${movimiento.fecha}"></td>
+					<td th:text="${movimiento.monto}"></td>
+					<td th:text="${movimiento.cuenta.numero}"></td>					
+				</tr>
+			</tbody>
+
+		</table>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Nueva Cuenta</h1>
+<h4 th:text="'Cuenta para: '+${cliente.nombre} +' ' + ${cliente.apellido}"></h4>
+
+		<form th:action="@{/cuenta/save}" th:object="${cuenta}" method="post">
+			
+			<div >
+				<label for="name">Numero de Cuenta</label>
+				<div >
+					<input type="text" th:field="*{numero}"  /> 
+				</div>
+			</div>
+			
+			<div >
+				<label for="apellido">CCI</label>
+				<div >
+					<input type="text" th:field="*{cci}"/>
+				</div>
+			</div>
+			<div >
+				<label for="banco">Banco</label>
+				<div >
+					<input type="text" th:field="*{banco.id}"/>
+				</div>
+			</div>
+			<div >
+				<label for="email" >Saldo</label>
+				<div >
+					<input type="text" th:field="*{saldo}" />
+				</div>
+			</div>
+			
+			<div >
+				<label for="fecha_nacimiento">Fecha de Creacion</label>
+				<div >
+					<input type="text" th:field="*{creado}"/> 
+				</div>
+			</div>
+			
+			<div >
+				<div >
+					<input type="submit" value="Guardar" />
+				</div>
+			</div>
+		</form>
+</body>
+</html>

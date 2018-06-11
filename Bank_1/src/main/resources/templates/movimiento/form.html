@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Nueva Cuenta</h1>
+<h4 th:text="'Cliente: '+${cliente.nombre} +' ' + ${cliente.apellido}"></h4>
+<h4 th:text="'Movimiento para: '+${cuenta.numero}"></h4>
+
+		<form th:action="@{/movimiento/save}" th:object="${movimiento}" method="post">
+			
+			<div >
+				<label for="name">Tipo</label>
+				<div >
+					<input type="text" th:field="*{tipo}"  /> 
+				</div>
+			</div>
+			
+			<div >
+				<label for="apellido">Fecha</label>
+				<div >
+					<input type="text" th:field="*{fecha}"/>
+				</div>
+			</div>
+			<div >
+				<label for="email" >Monto</label>
+				<div >
+					<input type="text" th:field="*{monto}" />
+				</div>
+			</div>			
+			
+			<div >
+				<div >
+					<input type="submit" value="Guardar" />
+				</div>
+			</div>
+		</form>
+</body>
+</html>

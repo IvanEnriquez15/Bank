@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista Cuenta</title>
+</head>
+<body>
+
+<h1>Lista de Cuenta</h1>
+<h2 th:text="${cliente.nombre} +' ' + ${cliente.apellido}"></h2>
+	<h4><a th:href="@{/cuenta/new/}" >Nueva Cuenta</a></h4>
+	<table border=1>
+			<thead >
+				<tr>
+					<th>id</th>
+					<th>Numero</th>
+					<th>CCI</th>
+					<th>Fecha Creada</th>
+					<th>Saldo</th>
+					<th>Banco</th>
+					<th>Crear Movimientos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cuenta: ${cuentas}">
+					<td th:text="${cuenta.id}"></td>
+					<td th:text="${cuenta.numero}"></td>
+					<td th:text="${cuenta.cci}"></td>
+					<td th:text="${cuenta.creado}"></td>
+					<td th:text="${cuenta.saldo}"></td>
+					<td th:text="${cuenta.banco.nombre}"></td>
+					<td><a href="#" th:href="@{'/movimiento/new/'+ ${cuenta.id}}" th:text="'Crear'"></a></td>
+				</tr>
+			</tbody>
+
+		</table>
+</body>
+</html>
