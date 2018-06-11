@@ -1,3 +1,3 @@
 # Bank
-Participación Open Source
+Participación Open Source || 
 Open and Use
